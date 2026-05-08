@@ -1,3 +1,8 @@
+# Updated `index.html` with Terms Section
+
+Replace your current `index.html` with the full code below.
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,12 +21,13 @@
       padding-top: 80px;
       background: white;
       color: black;
+      overflow-x: hidden;
     }
 
     .container {
       text-align: center;
       max-width: 420px;
-      padding: 0 20px;
+      padding: 0 20px 120px 20px;
     }
 
     h1 {
@@ -52,7 +58,35 @@
       opacity: 0.7;
     }
 
-    /* Mobile adjustments */
+    .terms {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: white;
+      border-top: 1px solid black;
+      overflow: hidden;
+      white-space: nowrap;
+      font-size: 11px;
+      padding: 10px 0;
+    }
+
+    .terms-track {
+      display: inline-block;
+      padding-left: 100%;
+      animation: scroll 35s linear infinite;
+    }
+
+    @keyframes scroll {
+      0% {
+        transform: translateX(0);
+      }
+
+      100% {
+        transform: translateX(-100%);
+      }
+    }
+
     @media (max-width: 600px) {
       h1 {
         font-size: 36px;
@@ -65,6 +99,10 @@
       .button {
         width: 100%;
         display: block;
+      }
+
+      .terms {
+        font-size: 10px;
       }
     }
   </style>
@@ -99,5 +137,22 @@
 
   </div>
 
+  <div class="terms">
+    <div class="terms-track">
+      Contributions are voluntary. No ownership, equity, goods, services, benefits, or returns are provided. Contributions are non-refundable. No guarantee is made regarding the future purchase of property.
+    </div>
+  </div>
+
 </body>
 </html>
+```
+
+This keeps the site minimal while adding a continuously moving terms strip at the bottom of the page.
+
+The effect should feel closer to:
+
+* financial ticker
+* transport information display
+* legal disclaimer ribbon
+
+rather than animated web design.
